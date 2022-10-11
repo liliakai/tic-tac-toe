@@ -9,7 +9,7 @@ function Cell(props) {
 
   return (
     <div className="cell" onClick={onClick}>
-      { props.state }
+      { props.mark }
     </div>
   );
 }
@@ -19,7 +19,7 @@ function App() {
   const [board, setBoard] = useState(Array(9).fill(""));
   const [winner, setWinner] = useState(null);
 
-  function didWin() {
+  function didWin(newBoard) {
     const winStates = [
       [0, 1, 2],
       [3, 4, 5],
@@ -33,7 +33,7 @@ function App() {
 
     for (const i in winStates) {
       const cells = winStates[i];
-      if (cells.every((i) => board[i] === turn)) {
+      if (cells.every((i) => newBoard[i] === turn)) {
         return true;
       }
     }
@@ -42,14 +42,14 @@ function App() {
   }
 
   function onCellClick(i) {
-    if (board[i] !== "") {
+    if (board[i] !== "" || winner) {
       return;
     }
-    const b = board;
-    board[i] = turn;
-    setBoard(b);
+    const newBoard = board.slice(); // treat board as immutable
+    newBoard[i] = turn;
+    setBoard(newBoard);
 
-    if (didWin()) {
+    if (didWin(newBoard)) {
       setWinner(turn);
       return;
     }
@@ -74,7 +74,7 @@ function App() {
           {
             board.map(function(cell, i) {
               return (
-                <Cell key={i} index={i} state={cell} onClick={onCellClick} />
+                <Cell key={i} index={i} mark={cell} onClick={onCellClick} />
               );
             })
           }
