@@ -11,3 +11,9 @@ In the project directory, you can run:
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
+## TODO
+
+* Better cell styling
+* Play again button
+* Highlight/animate winning cells
+* Collect and display win/loss stats
