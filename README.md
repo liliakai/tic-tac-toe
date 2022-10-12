@@ -17,3 +17,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 * Play again button
 * Highlight/animate winning cells
 * Collect and display win/loss stats
+* Display who's turn it is
+* Hover effect on cells
