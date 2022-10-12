@@ -19,3 +19,5 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 * Collect and display win/loss stats
 * Display who's turn it is
 * Hover effect on cells
+* Display cursor as X or O
+* Responsive layout
